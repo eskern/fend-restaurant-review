@@ -71,13 +71,24 @@ nav h1 a {
     list-style: none;
     background-color: #eee;
     font-size: 17px;
-    margin: 0;
     width: calc(50% - 80px);
+		height: 1.5rem;
+		justify-content: flex-start;
+}
+
+#breadcrumb ul{
+	display: inline;
 }
 
 /* Display list items side by side */
 #breadcrumb li {
     display: inline;
+}
+
+#breadcrumb ul, li{
+	align-self: center;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 /* Add a slash symbol (/) before/behind each list item */
@@ -246,8 +257,10 @@ nav h1 a {
 #restaurant-container, #reviews-container {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
-  padding: 140px 40px 30px;
-  width: 50%;
+  padding: 140px 40px 20px;
+  width: 40%;
+	word-wrap: break-word;
+	z-index: 999;
 }
 #reviews-container {
   padding: 30px 40px 80px;
@@ -266,7 +279,7 @@ nav h1 a {
 }
 #reviews-list li {
   background-color: #fff;
-    border: 2px solid #f3f3f3;
+  border: 2px solid #f3f3f3;
   display: block;
   list-style-type: none;
   margin: 0 0 30px;
@@ -284,48 +297,41 @@ nav h1 a {
 }
 
 /*** Reponsive Styles ***/
-/*@media (min-width: 650px) {
-    aside {
-        display: flex;
-    }
-
-    .sidebar-text {
-        margin-left: 2em;
-    }
-
-    .sidebar-text h2 {
-        margin-top: 0;
-    }
+/* Blanket for Mobiles and Smol Lap/Desktop Windows*/
+@media screen and (max-width: 639px){
+	nav {
+		align-items: center;
+	}
+	.inside #map-container {
+	  background: blue none repeat scroll 0 0;
+	  height: 40%;
+	  position: fixed;
+		z-index: 999; /*So the map always stays in front*/
+	  top: 80px;
+	  width: 100%;
+	}
+	.inside #map {
+	  background-color: #ccc;
+	  height: 100%;
+	  width: 100%;
+	}
+	#breadcrumb {
+	    padding: 5px 10px 5px;
+	    list-style: none;
+	    background-color: #eee;
+	    font-size: 16px;
+	    width: 100%;/*calc(70% - 80px);*/
+			justify-content: flex-start;
+	}
+	#restaurant-container {
+	  border-bottom: 1px solid #d9d9d9;
+	  border-top: 1px solid #fff;
+	  padding: 380px 50px 30px;
+	  width: 80%;
+	}
+	#reviews-container {
+		border-bottom: 1px solid #d9d9d9;
+	  border-top: 1px solid #fff;
+		width: 80%;
+	}
 }
-
-@media (min-width: 1000px) {
-    .page-header {
-        min-height: 35vh;
-    }
-
-    .container {
-        display: flex;
-    }
-
-    main {
-        flex: 1 1 70%;
-    }
-
-    aside {
-        display: block;
-        border-top: 0;
-        border-left: 2px solid #dbe2e8;
-        margin: 0;
-        padding: 2em;
-        flex: 0 1 30%;
-        align-self: flex-start;
-    }
-
-    .sidebar-text {
-        margin-left: 0;
-    }
-
-    .sidebar-text h2 {
-        margin-top: 0.5em;
-    }
-}*/
